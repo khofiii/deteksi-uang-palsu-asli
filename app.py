@@ -6,7 +6,7 @@ import glob
 import re, glob, os, cv2
 import numpy as np
 import pandas as pd
-import real_time_yolo
+import yolo_object_detection
 from shutil import copyfile
 import shutil
 from distutils.dir_util import copy_tree
