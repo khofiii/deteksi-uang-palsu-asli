@@ -11,7 +11,7 @@ output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # Loading image
-img = cv2.imread("20221109_105255.jpg")
+img = cv2.imread("palsu.jpg")
 img = cv2.resize(img, None, fx=0.2, fy=0.2)
 height, width, channels = img.shape
 
