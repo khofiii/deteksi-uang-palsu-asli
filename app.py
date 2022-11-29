@@ -3,7 +3,7 @@ from __future__ import division, print_function
 import sys
 import os
 import glob
-import re, glob, os,cv2
+import re, glob, os, cv2
 import numpy as np
 import pandas as pd
 import real_time_yolo
