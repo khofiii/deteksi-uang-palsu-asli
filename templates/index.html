@@ -1,43 +1,409 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>YOLO-Object Detection</title>
-    <link rel="stylesheet" type="text/css" href="../static/index.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript" src="../static/index.js"></script>
-  </head>
-  <body>
-    <div class="App">
-      <header class="App-header">
-        <p><u> Object Detection - YOLO </u></p>
-        <!-- <div className="pre_img">
-          <span><img id="imagebox" src="" /></span>
-        </div> -->
-        <!-- <video width="320" height="240" controls>
-          <source src="/static/video_1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video> -->
-        <button name="cam" class="button" id="opencam">Video Cam</button>
-        <br/>
-        <hr class="line" />
-        <form>
-          <input
-            id="imageinput"
-            type="file"
-            name="image"
-            onchange="readUrl(this)"
-          />
-        </form>
-        <button name="send"  class="button" id="sendbutton">Send</button>
-        <br/>
-        <div id="link">
-          <a href="" id="download" download>Download</a>
-        </div>
-      </header>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Website Dteksi uang</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+ 
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-book-reader mr-3"></i>Deteksi Uangku</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+        </nav>
     </div>
-  </body>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px; ">
+        <div class="container text-center my-5 py-5">
+            <h1 class="text-white mt-4 mb-4">Pendeteksi Uang Rp.100.000</h1>
+            <h1 class="text-white display-1 mb-5">Menggunakan Computer Vision</h1>
+            <div class="mx-auto mb-5" style="width: 100%; max-width: 600px;">
+                <div class="input-group">
+                        <center><p class="image_upload">
+                            <form action="/" method="post" enctype="multipart/form-data">
+                               <input type="file" class="btn btn-info btn-sm" name="file">
+                               <input id="submit-btn" type="submit" class="btn btn-info py-2 px-4 d-none d-lg-block" value="upload gambar">
+                               <img src="{{img_path}}" width="500" height="500" alt="foto deteksi">
+                             </form>                             
+                         </p></center> 
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100" src="/static/img/bank.jpeg" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="section-title position-relative mb-4">
+                        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Tentang</h6>
+                        <h1 class="display-4">Jumlah Peredaran Uang Palsu</h1>
+                    </div>
+                    <p class="mb-4 pb-2">Peredaran uang palsu sangat merugikan sebuah negara. Dampaknya tidak terbatas
+                        pada perputaran pasar, namun juga akan sangat merugikan pemerintah. Pemerintah
+                        Indonesia sendiri, melalui Bank Indonesia, terus gencar mensosialisasikan cara mengenali
+                        uang baru kepada seluruh lapisan masyarakat, tidak hanya lapisan tertentu. Karena semua
+                        lapisan masyarakat tetap terlibat dalam proses perekonomian.
+                        Seperti sosialisasi yang dilaksanakan di Purwokerto, Jawa Tengah. Bersama Persatuan
+                        Istri Pegawai Bank Indonesia (Pipebi), Bank Indonesia menggelar sosialisasi ciri-ciri keaslian
+                        uang kepada anggota Persatuan Tunanetra Indonesia (Pertuni) Kabupaten Banyumas.
+                        Deputi Kepala Perwakilan BI Purwokerto, Fadhil Nugroho, berucap bahwa orang-orang yang
+                        memiliki kekurangan juga berhak memperoleh pengetahuan tentang ciri-ciri uang asli
+                        [detikFinance, 2014] <br><br> Berikut statistik peredaran uang palsu di Indonesia dalam 3 tahun terakhir :</p>
+                    <div class="row pt-3 mx-0">
+                        <div class="col-4 px-0">
+                            <div class="bg-success text-center p-4">
+                                <h1 class="text-white" data-toggle="counter-up">260394</h1>
+                                <h6 class="text-uppercase text-white">Tahun<span class="d-block">2021</span></h6>
+                            </div>
+                        </div>
+                        <div class="col-4 px-0">
+                            <div class="bg-primary text-center p-4">
+                                <h1 class="text-white" data-toggle="counter-up">193948</h1>
+                                <h6 class="text-uppercase text-white">Tahun<span class="d-block">2020</span></h6>
+                            </div>
+                        </div>
+                        <div class="col-4 px-0">
+                            <div class="bg-secondary text-center p-4">
+                                <h1 class="text-white" data-toggle="counter-up">202741</h1>
+                                <h6 class="text-uppercase text-white">Tahun<span class="d-block">2019</span></h6>
+                            </div>
+                        </div>
+                        
+                        <p>Sumber Bank Indonesia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Feature Start -->
+    <div class="container-fluid bg-image" style="margin: 90px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 my-5 pt-5 pb-lg-5">
+                    <div class="section-title position-relative mb-4">
+                        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Perancangan</h6>
+                        <h1 class="display-4">Sistem Perancangan Deteksi Uang</h1>
+                    </div>
+
+                        <p>Secara umum perancangan ini dikelompokan
+                            menjadi dua tahapan. Tahap pertama yaitu proses
+                            pengambilan gambar untuk mengambil ekstraksi
+                            ciri dari uang tersebut. Tahap kedua yaitu proses
+                            komparasi data uji dengan data latih menggunakan
+                            metode template matching dari database. Uang
+                            yang akan digunakan sebagai data adalah uang
+                            kertas dengan nominal 100k.</p>
+                    
+                </div>
+                <div class="col-lg-5" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100" src="/static/img/uang.jpg" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+
+    
+        <div class="row justify-content-center bg-image mx-0 mb-5">
+            <div class="col-lg-6 py-5">
+                <div class="bg-white p-5 my-5">
+                    <h1 class="text-center mb-4">Laporkan jika mendapatkan uang palsu</h1>
+                    <form>
+                            
+                            <div class="col-sm-6">
+                                
+                                    <a href="https://www.bi.go.id/id/publikasi/laporan/default.aspx">klik disini</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Courses End -->
+
+
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative mb-5">
+                <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Team</h6>
+                <h1 class="display-4">Meet Our Team</h1>
+            </div>
+            <div class="owl-carousel team-carousel position-relative" style="padding: 0 30px;">
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
+                    <div class="bg-light text-center p-4">
+                        <h5 class="mb-3">Dinda Regina Noviar</h5>
+                        <p class="mb-2">Data Aquistion</p>
+                        <p class="mb-2">Universitas Dian Nuswantoro</p>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                    <div class="bg-light text-center p-4">
+                        <h5 class="mb-3">Hanin Atika Nurussyifa</h5>
+                        <p class="mb-2">Data Exploration</p>
+                        <p class="mb-2">Universitas Diponegoro</p>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                    <div class="bg-light text-center p-4">
+                        <h5 class="mb-3">Ahmad Imam Khofi</h5>
+                        <p class="mb-2">Modeling & Evaluation</p>
+                        <p class="mb-2">Universitas Muhammadiyah Semarang</p>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
+                    <div class="bg-light text-center p-4">
+                        <h5 class="mb-3">Rousyan Afkar Irbah</h5>
+                        <p class="mb-2">Scientific Journal Writing</p>
+                        <p class="mb-2">Universitas Diponegoro</p>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
+                    <div class="bg-light text-center p-4">
+                        <h5 class="mb-3">Adi Mulya Hyoga Pramesta</h5>
+                        <p class="mb-2">Web Design & Development</p>
+                        <p class="mb-2">Universitas Dian Nuswantoro</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid bg-image py-5" style="margin: 90px 0;">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="section-title position-relative mb-4">
+                        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Testimonial</h6>
+                        <h1 class="display-4">What Say Our User</h1>
+                    </div>
+                    <p class="m-0">Kami sudah memiliki beberapa Pengguna yang telah menggunakan sistem deteksi uang ini beberapa pengguna ini berasal dari pedagang-pedagang kecil. Dan berikut adalah testimoni dari mereka</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="owl-carousel testimonial-carousel">
+                        <div class="bg-white p-5">
+                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+                            <p>Terima Kasih berkak aplikasi ini sangat terbantu untuk pedagang kecil terutama UMKM yang belum bisa membeli money detector dengan biaya cukup besar</p>
+                            <div class="d-flex flex-shrink-0 align-items-center mt-4">
+                                <img class="img-fluid mr-4" src="/static/img/testi1.jpg" alt="">
+                                <div>
+                                    <h5>Ibu Siti</h5>
+                                    <span>Pedagang Kue Pasar</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5">
+                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+                            <p>Berkat aplikasi ini saya sangat terbantu untuk mengetaui uang palsu dan tidak perlu membeli money detector yang harga sangat terjangkau</p>
+                            <div class="d-flex flex-shrink-0 align-items-center mt-4">
+                                <img class="img-fluid mr-4" src="/static/img/test2.jpg" alt="">
+                                <div>
+                                    <h5>Pak Rudi</h5>
+                                    <span>Pedagang bakso keliling</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial Start -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="bg-light d-flex flex-column justify-content-center px-5" style="height: 450px;">
+                        <h4>Kontak Kami</h4>
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="btn-icon bg-primary mr-4">
+                                <i class="fa fa-2x fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="mt-n1">
+                                <h4>Our Location</h4>
+                                <p class="m-0">123 Street, Semarang, Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="btn-icon bg-secondary mr-4">
+                                <i class="fa fa-2x fa-phone-alt text-white"></i>
+                            </div>
+                            <div class="mt-n1">
+                                <h4>Call Us</h4>
+                                <p class="m-0">+012 345 6789</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="btn-icon bg-warning mr-4">
+                                <i class="fa fa-2x fa-envelope text-white"></i>
+                            </div>
+                            <div class="mt-n1">
+                                <h4>Email Us</h4>
+                                <p class="m-0">deteksiuangyuk@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="section-title position-relative mb-4">
+                        <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Need Help?</h6>
+                        <h1 class="display-4">Kritik & Saran</h1>
+                    </div>
+                    <div class="contact-form">
+                        <form>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Name" required="required">
+                                </div>
+                                <div class="col-6 form-group">
+                                    <input type="email" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Your Email" required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Subject" required="required">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control border-top-0 border-right-0 border-left-0 p-0" rows="5" placeholder="Message" required="required"></textarea>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary py-3 px-5" type="submit">Kirim</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">
+        <div class="container mt-5 pt-5">
+            <div class="row">
+                <div class="col-md-6 mb-5">
+                    <a href="index.html" class="navbar-brand">
+                        <h1 class="mt-n2 text-uppercase text-white"><i class="fa fa-book-reader mr-3"></i>Deteksi Uangku</h1>
+                    </a>
+                    <p class="m-0">Alat pendeteksi uang asli dan uang palsu <br>Mari buktikan keaslian uangmu disini</p>
+                </div>
+                <div class="col-md-6 mb-5">
+                    <h3 class="text-white mb-4">Newsletter</h3>
+                    <div class="w-100">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary px-4">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <h3 class="text-white mb-4">Get In Touch</h3>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, Semarang, Indonesia</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope mr-2"></i>deteksiuangyuk@gmail.com</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-twitter"></i></a>
+                        <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-facebook-f"></i></a>
+                        <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-linkedin-in"></i></a>
+                        <a class="text-white" href="#"><i class="fab fa-2x fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white-50 border-top py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="m-0">Copyright &copy; <a class="text-white" href="#">Deteksi Uangku</a>. All Rights Reserved.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/lib/easing/easing.min.js"></script>
+    <script src="/static/lib/waypoints/waypoints.min.js"></script>
+    <script src="/static/lib/counterup/counterup.min.js"></script>
+    <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/static/js/main.js"></script>
+</body>
+
 </html>
