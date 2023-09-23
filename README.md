@@ -12,7 +12,7 @@ setelah itu akan langsung masuk ke aplikasi vsc setelah di vsc
    conda create -n "deteksi" python==3.9
 3. nanti akan akan ada pilihan [y/n]
    ketik saja y terus enter
-4. aktifkan environtment yang tadi sudah di baut dengan cara ketikan code ini:
+4. aktifkan environtment yang tadi sudah di buat dengan cara ketikan code ini:
    conda activate deteksi
 5. setelah itu instal opencv,flask, dan numpy dengan cara ketikan code:
    pip install opencv-python
